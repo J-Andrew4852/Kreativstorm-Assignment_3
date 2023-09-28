@@ -1,45 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-       <meta charset="UTF-8">
-       <meta http-equiv="X-UA-Compatible" content="IE=edge">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-       <title>Rock Paper scissors</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,700;0,900;1,100;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Rock Paper Scissors</title>
+    <!-- <link rel="icon" href="favicon.png" type="image/x-icon" /> -->
+  </head>
+  <body>
     <section>
-        <div class="gameTop">
-            <h1 class="heroHeader">Rock Paper Scissors</h1>
-            <h2 class="mainHeader">Round 1</h2>
-            <h3 class="subHeader">Make your choice</h3>
-            <div class="splitHeader">
-                <h3 class="subHeader">You</h3>
-                <h3 class="subHeader">AI</h3>
-            </div>
+      <div class="gameTop">
+        <h1 class="heroHeader">Rock Paper Scissors</h1>
+        <h2 class="mainHeader">Round 1</h2>
+        <h3 class="subHeader"><strong>Make your choice</strong></h3>
+        <div class="splitHeader">
+          <h3 class="subHeader">You</h3>
+          <h3 class="subHeader">AI</h3>
         </div>
-        <div class="gameMain">
-            <div class="startGame">
-                <h3 class="startBtn">StartGame</h3>
-            </div>
-            <div class="card select">
-                <img src="" alt="Icon">
-                <h4>Icon Name</h4>
-            </div>
-            <div class="card selected">
-                <img src="" alt="Icon">
-                <h4>Icon Name</h4>
-            </div>
-            <div class="roundCountContainer">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
+      </div>
+      <div class="gameMain">
+        <div class="startGame">
+          <h3 class="startBtn">StartGame</h3>
         </div>
+        <div class="icon-container">
+          <div class="card select">
+            <!-- <img src="" alt="Icon" /> -->
+            <i class="fa-regular fa-hand-back-fist fa-rotate-90 fa-2xl"></i>
+            <h4>Rock</h4>
+          </div>
+          <div class="card select">
+            <!-- <img src="" alt="Icon" /> -->
+            <i class="fa-regular fa-hand fa-rotate-90 fa-2xl"></i>
+            <h4>Paper</h4>
+          </div>
+          <div class="card select">
+            <!-- <img src="" alt="Icon" /> -->
+            <!-- <i class="bx bxs-hand bx-rotate-90" style="color: #ffffff"></i> -->
+            <i
+              class="fa-regular fa-hand-scissors fa-flip-horizontal fa-2xl"
+            ></i>
+            <h4>Scissors</h4>
+          </div>
+        </div>
+        <div class="roundCountContainer">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+      </div>
     </section>
-       <!-- <div id="game">
+    <!-- <div id="game">
               <h1 class="gameText" id="momtazText">Momtaz: </h1>
               <h1 class="gameText" id="computerText">Computer: </h1>
               <h1 class="gameText" id="resultText">Result: </h1>
@@ -48,5 +75,5 @@
               <button class="buttonChoice">SCISSORS</button>
        </div> -->
     <script src="./main.js"></script>
-</body>
+  </body>
 </html>
