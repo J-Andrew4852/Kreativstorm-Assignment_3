@@ -14,33 +14,38 @@ body {
   height: 100vh;
   margin: 0;
 }
-
 .gameTop {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.splitHeader {
-  display: flex;
-  justify-content: space-evenly;
-}
-
 .heroHeader {
   font-size: 60px;
   color: var(--dark-theme);
+  font-weight: 900;
 }
 
 .mainHeader {
   font-size: 60px;
   color: var(--dark-theme);
+  font-weight: 900;
 }
 
 .subHeader {
   font-size: 32px;
   color: var(--dark-theme);
 }
-
+.splitHeader {
+  display: flex;
+  justify-content: space-evenly;
+}
+.youHeader {
+  color: var(--selected-you)
+}
+.aiHeader {
+  color: var(--selected-ai);
+}
 .gameMain {
   display: flex;
   flex-direction: column;
@@ -56,8 +61,9 @@ body {
   width: 366px;
   height: 126px;
   padding: 10px 20px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: var(--dark-theme);
+  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
   cursor: pointer;
   border: none;
   border-radius: 30px;
@@ -65,17 +71,14 @@ body {
   text-decoration: none;
   margin-bottom: 20px;
 }
-
 .startGame:hover {
-  background-color: white;
-  color: var(--dark-theme);
-  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
+  color: var(--selected-you);
   transition: 0.3s ease-in-out;
 }
-
 .startBtn {
   margin: 0;
   font-size: 48px;
+  font-weight: 700;
 }
 
 .icon-container {
@@ -89,21 +92,23 @@ body {
   height: 209px;
   background-color: var(--dark-theme);
   border-radius: 30px;
-  color: white;
   padding: 20px;
+  color: #0a0b17;
+  background-color: white;
+  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
   text-align: center;
   margin: 0 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
   background-color: white;
   transition: 0.3s ease-in-out;
-  color: #0a0b17;
+  color: var(--selected-you);
 }
 
 .card i {
@@ -137,3 +142,14 @@ body {
 .circle:last-child {
   margin-right: 0;
 }
+
+.you {
+  background-color: var(--selected-you);
+}
+.ai {
+  background-color: #ff007a;
+}
+
+/* .none {
+  display: none;
+} */
