@@ -1,0 +1,139 @@
+:root {
+  --dark-theme: #0a0b17;
+  --selected-you: #00a9a9;
+  --selected-you-light: #51c2c0;
+  --selected-ai: #ff007a;
+  --draw: #4f53ff;
+}
+
+body {
+  background-color: #f9faf8;
+  font-family: "Montserrat", sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.gameTop {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.splitHeader {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.heroHeader {
+  font-size: 60px;
+  color: var(--dark-theme);
+}
+
+.mainHeader {
+  font-size: 60px;
+  color: var(--dark-theme);
+}
+
+.subHeader {
+  font-size: 32px;
+  color: var(--dark-theme);
+}
+
+.gameMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.startGame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 366px;
+  height: 126px;
+  padding: 10px 20px;
+  background-color: black;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.startGame:hover {
+  background-color: white;
+  color: var(--dark-theme);
+  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
+  transition: 0.3s ease-in-out;
+}
+
+.startBtn {
+  margin: 0;
+  font-size: 48px;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card {
+  flex: 1;
+  width: 227px;
+  height: 209px;
+  background-color: var(--dark-theme);
+  border-radius: 30px;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  margin: 0 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  transition: 0.3s ease-in-out;
+  color: #0a0b17;
+}
+
+.card i {
+  font-size: 101px;
+  margin-bottom: 40px;
+  margin-top: 80px;
+}
+
+.card h4 {
+  font-size: 32px;
+  margin-top: 30px;
+}
+
+.roundCountContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  min-width: 400px;
+  margin-bottom: 50px;
+}
+
+.circle {
+  width: 50px;
+  height: 50px;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  margin-right: 30px;
+}
+
+.circle:last-child {
+  margin-right: 0;
+}
