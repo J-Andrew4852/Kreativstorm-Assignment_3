@@ -1,5 +1,5 @@
 import gameState from './game-state.js';
-import displayElements from './display.js';
+import displayElements from '../display/display.js';
 
 class GameManager {
   constructor() {
