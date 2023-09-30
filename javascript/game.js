@@ -1,11 +1,11 @@
-import ('./game-state.js');
+import gameManager from './game-manager.js';
+import gameState from './game-state.js';
 
-
-class RockPaperScissors {
-  private static state = null;
-
-  public static start() {
-    RockPaperScissors.state = State.START;
+class Game {
+  static start() {
+    gameManager.setGameState(gameState.START);
+    gameManager.updateDisplay();
   }
 }
 
+export default Game;

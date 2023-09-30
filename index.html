@@ -25,19 +25,19 @@
   <body>
     <section>
       <div class="gameTop">
-        <h1 class="heroHeader">Rock Paper Scissors</h1>
-        <h2 class="mainHeader none">Round 1</h2>
-        <h3 class="subHeader none"><strong>Make your choice</strong></h3>
-        <div class="splitHeader none">
+        <h1 class="heroHeader none" id="heroHeader">Rock Paper Scissors</h1>
+        <h2 class="mainHeader none" id="mainHeader">Round 1</h2>
+        <h3 class="subHeader none" id="subHeader"><strong>Make your choice</strong></h3>
+        <div class="splitHeader none" id="splitHeader">
           <h3 class="subHeader youHeader">You</h3>
           <h3 class="subHeader aiHeader">AI</h3>
         </div>
       </div>
       <div class="gameMain">
-        <div class="startGame">
+        <div class="startGame none" id="startGame">
           <h3 class="startBtn">StartGame</h3>
         </div>
-        <div class="icon-container none">
+        <div class="icon-container none" id="iconContainer">
           <div class="card select">
             <!-- <img src="" alt="Icon" /> -->
             <i class="fa-regular fa-hand-back-fist fa-rotate-90 fa-2xl"></i>
@@ -57,7 +57,7 @@
             <h4>Scissors</h4>
           </div>
         </div>
-        <div class="roundCountContainer none">
+        <div class="roundCountContainer none" id="roundCountContainer">
           <div class="circle"></div>
           <div class="circle"></div>
           <div class="circle"></div>
@@ -67,6 +67,6 @@
       </div>
     </section>
 
-    <script src="./main.js"></script>
+    <script type="module" src="./javascript/app.js" defer></script>
   </body>
 </html>
