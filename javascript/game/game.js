@@ -11,11 +11,40 @@ class Game {
 
   static #registerEvents() {
     displayElements.startGame.addEventListener('click', () => {
-      GameManager.gm.updateGameState(gameState.CHOICE);
-      GameManager.gm.updateDisplay();
-      GameManager.gm.updateCurrentRound();
+      this.#onClickGameStart();
+    });
+
+    displayElements.rockCard.addEventListener('click', () => {
+      this.#onClickRockCard();
+    });
+
+    displayElements.paperCard.addEventListener('click', () => {
+      this.#onClickPaperCard();
+    });
+
+    displayElements.scissorsCard.addEventListener('click', () => {
+      this.#onClickScissorsCard();
     });
   }
+
+  static #onClickGameStart() {
+    GameManager.gm.updateGameState(gameState.CHOICE);
+    GameManager.gm.updateDisplay();
+    GameManager.gm.updateCurrentRound();
+  }
+
+  static #onClickRockCard() {
+    GameManager.gm.updatePlayerChoice(1);
+  }
+
+  static #onClickPaperCard() {
+    GameManager.gm.updatePlayerChoice(2);
+  }
+
+  static #onClickScissorsCard() {
+    GameManager.gm.updatePlayerChoice(3);
+  }
+
 }
 
 export default Game;

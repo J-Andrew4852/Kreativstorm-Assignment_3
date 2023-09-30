@@ -5,22 +5,32 @@ class GameManager {
 
   static gm = new this();
 
+  #gameState;
+  #currentRound;
+  #playerChoice;
+  #roundsResult;
+
   constructor() {
-    this.gameState = null;
-    this.currentRound = 0;
-    this.roundsResult = [];
+    this.#gameState = null;
+    this.#currentRound = 0;
+    this.#playerChoice = 0; // 1 - Rock, 2 - Paper, 3 - Scissors
+    this.#roundsResult = [];
   }
 
   updateGameState(state) {
-    this.gameState = state;
+    this.#gameState = state;
   }
 
   updateCurrentRound() {
-    this.currentRound = this.currentRound + 1;
+    this.#currentRound = this.#currentRound + 1;
+  }
+
+  updatePlayerChoice(choice) {
+    this.#playerChoice = choice;
   }
 
   updateDisplay() {
-      switch (this.gameState) {
+      switch (this.#gameState) {
         case gameState.START:
           Object.keys(displayElements).forEach(element => {
             if (element === 'heroHeader' || element === 'startGame') {
@@ -33,7 +43,9 @@ class GameManager {
 
       case gameState.CHOICE:
         Object.keys(displayElements).forEach(element => {
-          if (element === 'mainHeader' || element === 'subHeader' || element === 'iconContainer') {
+          if (element === 'mainHeader' || element === 'subHeader' 
+              || element === 'iconContainer' || element === 'rockCard'
+              || element === 'paperCard' || element === 'scissorsCard') {
             displayElements[element].classList.remove('none');
           } else {
             displayElements[element].classList.add('none');
@@ -41,6 +53,10 @@ class GameManager {
         });
       break;
     }
+  }
+
+  getPlayerChoice() {
+    return this.#playerChoice;
   }
 }
 
