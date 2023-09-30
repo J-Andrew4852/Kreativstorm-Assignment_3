@@ -1,6 +1,8 @@
 const gameState = {
   START: 'START',
-  INGAME: 'INGAME',
+  CHOICE: 'CHOICE',
+  ANIMATION: 'ANIMATION',
+  RESULT: 'RESULT',
   END: 'END',
 };
 

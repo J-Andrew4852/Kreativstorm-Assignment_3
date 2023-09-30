@@ -7,27 +7,39 @@ class GameManager {
 
   constructor() {
     this.gameState = null;
+    this.currentRound = 0;
+    this.roundsResult = [];
   }
 
-  setGameState(state) {
+  updateGameState(state) {
     this.gameState = state;
   }
 
-  updateDisplay() {
-    if (this.gameState === gameState.START) {
+  updateCurrentRound() {
+    this.currentRound = this.currentRound + 1;
+  }
 
-      Object.keys(displayElements).forEach(element => {
-        if (element === 'heroHeader' || element === 'startGame') {
-          displayElements[element].classList.remove('none');
-        } else {
-          displayElements[element].classList.add('none');
-        }
-      });
-      
-    } else if (this.gameState === gameState.INGAME) {
-      // ...
-    } else  {
-      // ...
+  updateDisplay() {
+      switch (this.gameState) {
+        case gameState.START:
+          Object.keys(displayElements).forEach(element => {
+            if (element === 'heroHeader' || element === 'startGame') {
+              displayElements[element].classList.remove('none');
+            } else {
+              displayElements[element].classList.add('none');
+            }
+          });
+        break;
+
+      case gameState.CHOICE:
+        Object.keys(displayElements).forEach(element => {
+          if (element === 'mainHeader' || element === 'subHeader' || element === 'iconContainer') {
+            displayElements[element].classList.remove('none');
+          } else {
+            displayElements[element].classList.add('none');
+          }
+        });
+      break;
     }
   }
 }
