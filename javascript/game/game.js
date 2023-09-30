@@ -1,10 +1,10 @@
-import gameManager from './game-manager.js';
+import GameManager from './game-manager.js';
 import gameState from './game-state.js';
 
 class Game {
   static start() {
-    gameManager.setGameState(gameState.START);
-    gameManager.updateDisplay();
+    GameManager.gm.setGameState(gameState.START);
+    GameManager.gm.updateDisplay();
   }
 }
 
