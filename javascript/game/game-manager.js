@@ -13,7 +13,7 @@ class GameManager {
   constructor() {
     this.#gameState = null;
     this.#currentRound = 0;
-    this.#playerChoice = 0; // 1 - Rock, 2 - Paper, 3 - Scissors
+    this.#playerChoice = ''; // 1 - Rock, 2 - Paper, 3 - Scissors
     this.#roundsResult = [];
   }
 

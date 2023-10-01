@@ -34,15 +34,15 @@ class Game {
   }
 
   static #onClickRockCard() {
-    GameManager.gm.setPlayerChoice(1);
+    GameManager.gm.setPlayerChoice('rock');
   }
 
   static #onClickPaperCard() {
-    GameManager.gm.setPlayerChoice(2);
+    GameManager.gm.setPlayerChoice('paper');
   }
 
   static #onClickScissorsCard() {
-    GameManager.gm.setPlayerChoice(3);
+    GameManager.gm.setPlayerChoice('scissors');
   }
 
 }
