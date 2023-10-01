@@ -5,7 +5,7 @@ import displayElements from '../display/display.js';
 class Game {
   static start() {
     Game.#registerEvents();
-    GameManager.gm.updateGameState(gameState.START);
+    GameManager.gm.setGameState(gameState.START);
     GameManager.gm.updateDisplay();
   }
 
@@ -28,21 +28,21 @@ class Game {
   }
 
   static #onClickGameStart() {
-    GameManager.gm.updateGameState(gameState.CHOICE);
+    GameManager.gm.setGameState(gameState.CHOICE);
     GameManager.gm.updateDisplay();
     GameManager.gm.updateCurrentRound();
   }
 
   static #onClickRockCard() {
-    GameManager.gm.updatePlayerChoice(1);
+    GameManager.gm.setPlayerChoice(1);
   }
 
   static #onClickPaperCard() {
-    GameManager.gm.updatePlayerChoice(2);
+    GameManager.gm.setPlayerChoice(2);
   }
 
   static #onClickScissorsCard() {
-    GameManager.gm.updatePlayerChoice(3);
+    GameManager.gm.setPlayerChoice(3);
   }
 
 }
