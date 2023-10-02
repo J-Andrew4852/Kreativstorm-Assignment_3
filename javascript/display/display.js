@@ -1,9 +1,10 @@
 const displayElements = {
   heroHeader: document.getElementById('heroHeader'), // GAME_START
-  mainHeader: document.getElementById('mainHeader'), // CHOICE
+  mainHeader: document.getElementById('mainHeader'), // CHOICE, ANIMATION
   subHeader: document.getElementById('subHeader'), // CHOICE
+  splitHeader: document.getElementById('splitHeader'), // ANIMATION
   
-  splitHeader: document.getElementById('splitHeader'),
+  gameMain: document.getElementById('gameMain'),
   startGame: document.getElementById('startGame'), // GAME_START
   
   iconContainer: document.getElementById('iconContainer'), // CHOICE
