@@ -13,46 +13,39 @@ class GameManager {
   constructor() {
     this.#gameState = null;
     this.#currentRound = 0;
-    this.#playerChoice = 0; // 1 - Rock, 2 - Paper, 3 - Scissors
+    this.#playerChoice = ''; // 1 - Rock, 2 - Paper, 3 - Scissors
     this.#roundsResult = [];
   }
 
-  updateGameState(state) {
-    this.#gameState = state;
+  updateDisplay() {
+      switch (this.#gameState) {
+        case gameState.START:
+          this.#visibleElements('heroHeader', 'startGame');
+        break;
+
+        case gameState.CHOICE:
+          this.#visibleElements('mainHeader', 'subHeader', 'iconContainer', 'rockCard', 'paperCard', 'scissorsCard');
+        break;
+    }
+  }
+
+  #visibleElements(...elements) {
+    Object.keys(displayElements).forEach(element => {
+      if (elements.includes(element)) displayElements[element].classList.remove('none');
+      else displayElements[element].classList.add('none');
+    });
   }
 
   updateCurrentRound() {
     this.#currentRound = this.#currentRound + 1;
   }
 
-  updatePlayerChoice(choice) {
-    this.#playerChoice = choice;
+  setGameState(state) {
+    this.#gameState = state;
   }
 
-  updateDisplay() {
-      switch (this.#gameState) {
-        case gameState.START:
-          Object.keys(displayElements).forEach(element => {
-            if (element === 'heroHeader' || element === 'startGame') {
-              displayElements[element].classList.remove('none');
-            } else {
-              displayElements[element].classList.add('none');
-            }
-          });
-        break;
-
-      case gameState.CHOICE:
-        Object.keys(displayElements).forEach(element => {
-          if (element === 'mainHeader' || element === 'subHeader' 
-              || element === 'iconContainer' || element === 'rockCard'
-              || element === 'paperCard' || element === 'scissorsCard') {
-            displayElements[element].classList.remove('none');
-          } else {
-            displayElements[element].classList.add('none');
-          }
-        });
-      break;
-    }
+  setPlayerChoice(choice) {
+    this.#playerChoice = choice;
   }
 
   getPlayerChoice() {
