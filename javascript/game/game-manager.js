@@ -27,10 +27,13 @@ class GameManager {
           break;
 
         case gameState.CHOICE:
+          Display.updateMainHeader(this.getCurrentRound());
           Display.visibleElements('mainHeader', 'subHeader', 'gameMain', 'iconContainer', 'rockCard', 'paperCard', 'scissorsCard');
           break;
 
         case gameState.ANIMATION:
+          console.log('Current round: ', this.getCurrentRound());
+          console.log(this.#rounds[this.getCurrentRound()-1]);
           Display.updateChosenCards(this.#playerChoice, this.#rounds[this.getCurrentRound()-1].getBotChoice());
           Display.visibleElements('mainHeader', 'splitHeader', 'gameMain', 'iconContainer', 'youCard', 'aiCard');
           break;
@@ -56,12 +59,19 @@ class GameManager {
           Display.updateSubHeaderResult(this.getCurrentRoundResult());
           Display.updateTopCircle(this.getCurrentRound(), this.getCurrentRoundResult());
           Display.visibleElements('mainHeader', 'gameMain', 'subHeaderResult', 'roundCountContainerTop', 'iconContainer', ...visibleCards);
+
+          setTimeout(() => {
+            this.updateCurrentRound();
+            this.setGameState(gameState.CHOICE);
+          }, 2000);
+
           break;
     }
   }
 
   pushRound(round) {
     this.#rounds.push(round);
+    console.log('Rounds: ', this.#rounds);
   }
 
   updateCurrentRound() {

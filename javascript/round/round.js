@@ -11,10 +11,12 @@ class Round {
     this.#roundResult = '';
   
     GameManager.gm.pushRound(this);
+    console.log('Round pushed');
   }
 
   start() {
     this.#generateBotChoice();
+    console.log('Bot choice: ', this.getBotChoice());
     GameManager.gm.setGameState(gameState.ANIMATION);
     
     setTimeout(() => {

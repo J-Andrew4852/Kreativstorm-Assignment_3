@@ -33,19 +33,16 @@ class Game {
   }
 
   static #onClickRockCard() {
-    if(GameManager.gm.getCurrentRound() !== 1) GameManager.gm.updateCurrentRound();
     GameManager.gm.setPlayerChoice('rock');
     new Round().start();
   }
 
   static #onClickPaperCard() {
-    if(GameManager.gm.getCurrentRound() !== 1) GameManager.gm.updateCurrentRound();
     GameManager.gm.setPlayerChoice('paper');
     new Round().start();
   }
 
   static #onClickScissorsCard() {
-    if(GameManager.gm.getCurrentRound() !== 1) GameManager.gm.updateCurrentRound();
     GameManager.gm.setPlayerChoice('scissors');
     new Round().start();
   }

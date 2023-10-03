@@ -28,6 +28,10 @@ class Display {
     });
   }
 
+  static updateMainHeader(currentRound) {
+    Display.displayElements['mainHeader'].innerText = `Round ${currentRound}`;
+  }
+
   static updateChosenCards(playerChoice, botChoice) {
     let youCardHTML = '';
     let aiCardHTML = '';
