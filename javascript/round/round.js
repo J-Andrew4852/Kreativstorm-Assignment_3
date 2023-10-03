@@ -20,7 +20,7 @@ class Round {
     setTimeout(() => {
       this.#calculateResult();
       GameManager.gm.setGameState(gameState.RESULT);
-    }, 1400);
+    }, 0); // 1400
   }
 
   #generateBotChoice() {

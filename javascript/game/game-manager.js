@@ -55,16 +55,76 @@ class GameManager {
           }
 
           Display.updateSubHeaderResult(this.getCurrentRoundResult());
-          Display.updateTopCircle(this.getCurrentRound(), this.getCurrentRoundResult());
+          Display.updateCircle(this.getCurrentRound(), this.getCurrentRoundResult());
           Display.visibleElements('mainHeader', 'gameMain', 'subHeaderResult', 'roundCountContainerTop', 'iconContainer', ...visibleCards);
 
           setTimeout(() => {
-            this.updateCurrentRound();
-            this.setGameState(gameState.CHOICE);
-          }, 2000);
+            if (this.getCurrentRound() !== 5) {
+              this.updateCurrentRound();
+              this.setGameState(gameState.CHOICE);
+            } else {
+              this.setGameState(gameState.END);
+            }
+          }, 0); // 2000
 
           break;
+        
+        case gameState.END:
+          const matchResult = this.#getMatchResult();
+          const matchResultInfo = this.#getMatchResultInfo();
+
+          console.log(matchResultInfo);
+
+          Display.updateHeroHeader(matchResult);
+          Display.updateMatchResult(matchResult);
+          Display.updateMatchResultInfo(matchResultInfo);
+          Display.visibleElements('heroHeader', 'gameMain', 'matchResult', 'matchResultInfo', 'roundCountContainerBottom');
+          break;
     }
+  }
+
+  #getMatchResult() {
+    let wins = 0;
+    let loses = 0;
+
+    this.#rounds.forEach(round => {
+      switch(round.getRoundResult()) {
+        case 'win':
+          wins++;
+          break;
+
+        case 'lose':
+          loses++;
+          break;
+      }
+    });
+
+    let result = wins - loses;
+    return (result === 0 ? 'tie' : (result > 0 ? 'win' : 'lose'));
+  }
+
+  #getMatchResultInfo() {
+    let ties = 0;
+    let wins = 0;
+    let loses = 0;
+
+    this.#rounds.forEach(round => {
+      switch(round.getRoundResult()) {
+        case 'tie':
+          ties++;
+          break;
+
+        case 'win':
+          wins++;
+          break;
+
+        case 'lose':
+          loses++;
+          break;
+      }
+    });
+
+    return [ties, wins, loses];
   }
 
   pushRound(round) {
