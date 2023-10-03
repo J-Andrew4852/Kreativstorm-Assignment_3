@@ -29,34 +29,33 @@ class GameManager {
           break;
 
         case gameState.ANIMATION:
-          Display.visibleElements('mainHeader', 'splitHeader', 'gameMain');
+          Display.updateChosenCards(this.#playerChoice, this.#rounds[this.#currentRound-1].getBotChoice());
+          Display.visibleElements('mainHeader', 'splitHeader', 'gameMain', 'iconContainer', 'youCard', 'aiCard');
           break;
 
         case gameState.RESULT:
           const visibleCards = [];
           switch(this.#rounds[this.#currentRound-1].getRoundResult()) {
             case 'tie':
-              visibleCards.push('cardInGamePlayer', 'cardInGameAi');
-            break;
+              visibleCards.push('youCard', 'aiCard');
+              break;
 
             case 'win':
-              visibleCards.push('cardInGamePlayer');
-            break;
+              visibleCards.push('youCard');
+              break;
 
             case 'lose':
-              visibleCards.push('cardInGameAi');
-            break;
+              visibleCards.push('youCard');
+              break;
           }
 
-          Display.visibleElements('mainHeader', 'gameMain', 'roundCountContainer', 'gameCardsContainer', ...visibleCards);
+          Display.visibleElements('mainHeader', 'gameMain', 'subHeaderResult', 'roundCountContainerTop', 'iconContainer', ...visibleCards);
         break;
     }
-  }
   }
 
   pushRound(round) {
     this.#rounds.push(round);
-    console.log(this.#rounds[this.#currentRound-1].getBotChoice());
   }
 
   updateCurrentRound() {

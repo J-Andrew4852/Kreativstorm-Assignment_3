@@ -1,6 +1,6 @@
-import GameManager from './game-manager.js';
 import gameState from './game-state.js';
-import {displayElements} from '../display/display.js';
+import GameManager from './game-manager.js';
+import Display from '../display/display.js';
 import Round from '../round/round.js';
 
 class Game {
@@ -10,19 +10,19 @@ class Game {
   }
 
   static #registerEvents() {
-    displayElements.startGame.addEventListener('click', () => {
+    Display.displayElements.startGame.addEventListener('click', () => {
       this.#onClickGameStart();
     });
 
-    displayElements.rockCard.addEventListener('click', () => {
+    Display.displayElements.rockCard.addEventListener('click', () => {
       this.#onClickRockCard();
     });
 
-    displayElements.paperCard.addEventListener('click', () => {
+    Display.displayElements.paperCard.addEventListener('click', () => {
       this.#onClickPaperCard();
     });
 
-    displayElements.scissorsCard.addEventListener('click', () => {
+    Display.displayElements.scissorsCard.addEventListener('click', () => {
       this.#onClickScissorsCard();
     });
   }
