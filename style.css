@@ -91,7 +91,6 @@ body {
 
 .subHeader.result {
   font-size: 42px;
-  color: var(--selected-you);
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -156,6 +155,30 @@ body {
 
 .circle:last-child {
   margin-right: 0;
+}
+
+.winColor {
+  color: var(--selected-you);
+}
+
+.winBackground {
+  background-color: var(--selected-you);
+}
+
+.loseColor {
+  color: var(--selected-ai);
+}
+
+.loseBackground {
+  background-color: var(--selected-ai);
+}
+
+.tieColor {
+  color: var(--draw);
+}
+
+.tieBackground {
+  background-color: var(--draw);
 }
 
 .you {

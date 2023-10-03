@@ -8,12 +8,14 @@ class GameManager {
 
   #gameState;
   #currentRound;
+  #currentRoundResult;
   #playerChoice;
   #rounds;
 
   constructor() {
     this.#gameState = null;
     this.#currentRound = 0;
+    this.#currentRoundResult = '';
     this.#playerChoice = '';
     this.#rounds = [];
   }
@@ -29,13 +31,15 @@ class GameManager {
           break;
 
         case gameState.ANIMATION:
-          Display.updateChosenCards(this.#playerChoice, this.#rounds[this.#currentRound-1].getBotChoice());
+          Display.updateChosenCards(this.#playerChoice, this.#rounds[this.getCurrentRound()-1].getBotChoice());
           Display.visibleElements('mainHeader', 'splitHeader', 'gameMain', 'iconContainer', 'youCard', 'aiCard');
           break;
 
         case gameState.RESULT:
+          this.setCurrentRoundResult(this.#rounds[this.getCurrentRound()-1].getRoundResult());
           const visibleCards = [];
-          switch(this.#rounds[this.#currentRound-1].getRoundResult()) {
+    
+          switch(this.getCurrentRoundResult()) {
             case 'tie':
               visibleCards.push('youCard', 'aiCard');
               break;
@@ -45,12 +49,14 @@ class GameManager {
               break;
 
             case 'lose':
-              visibleCards.push('youCard');
+              visibleCards.push('aiCard');
               break;
           }
 
+          Display.updateSubHeaderResult(this.getCurrentRoundResult());
+          Display.updateTopCircle(this.getCurrentRound(), this.getCurrentRoundResult());
           Display.visibleElements('mainHeader', 'gameMain', 'subHeaderResult', 'roundCountContainerTop', 'iconContainer', ...visibleCards);
-        break;
+          break;
     }
   }
 
@@ -73,6 +79,14 @@ class GameManager {
 
   getCurrentRound() {
     return this.#currentRound;
+  }
+
+  setCurrentRoundResult(currentRoundResult) {
+    this.#currentRoundResult = currentRoundResult;
+  }
+
+  getCurrentRoundResult() {
+    return this.#currentRoundResult;
   }
 
   getPlayerChoice() {

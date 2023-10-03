@@ -67,6 +67,36 @@ class Display {
     Display.displayElements['youCard'].innerHTML = youCardHTML;
     Display.displayElements['aiCard'].innerHTML = aiCardHTML;
   }
+
+  static updateSubHeaderResult(currentRoundResult) {
+    let text = '';
+    let colorClass = '';
+
+    switch (currentRoundResult) {
+      case 'tie':
+        text = 'You Tied';
+        colorClass = 'tieColor';
+        break;
+
+      case 'win':
+        text = 'You Win';
+        colorClass = 'winColor';
+        break;
+      
+      case 'lose':
+        text = 'You Lose';
+        colorClass = 'loseColor';
+        break;
+    }
+
+    Display.displayElements['subHeaderResult'].innerText = text;
+    Display.displayElements['subHeaderResult'].classList.add(colorClass);
+  }
+
+  static updateTopCircle(currentRound, currentRoundResult) {
+    const circle = document.getElementById(`${currentRound}.0`);
+    circle.classList.add(`${currentRoundResult}Background`);
+  }
 }
 
 export default Display;

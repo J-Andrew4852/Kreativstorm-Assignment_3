@@ -10,19 +10,19 @@ class Game {
   }
 
   static #registerEvents() {
-    Display.displayElements.startGame.addEventListener('click', () => {
+    Display.displayElements['startGame'].addEventListener('click', () => {
       this.#onClickGameStart();
     });
 
-    Display.displayElements.rockCard.addEventListener('click', () => {
+    Display.displayElements['rockCard'].addEventListener('click', () => {
       this.#onClickRockCard();
     });
 
-    Display.displayElements.paperCard.addEventListener('click', () => {
+    Display.displayElements['paperCard'].addEventListener('click', () => {
       this.#onClickPaperCard();
     });
 
-    Display.displayElements.scissorsCard.addEventListener('click', () => {
+    Display.displayElements['scissorsCard'].addEventListener('click', () => {
       this.#onClickScissorsCard();
     });
   }
