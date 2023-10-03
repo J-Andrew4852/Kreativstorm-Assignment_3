@@ -1,7 +1,6 @@
 :root {
   --dark-theme: #0a0b17;
   --selected-you: #00a9a9;
-  --selected-you-light: #51c2c0;
   --selected-ai: #ff007a;
   --draw: #4f53ff;
 }
@@ -14,10 +13,12 @@ body {
   height: 100vh;
   margin: 0;
 }
+
 .gameTop {
   display: flex;
   flex-direction: column;
   text-align: center;
+  margin-bottom: 4vw;
 }
 
 .heroHeader {
@@ -30,18 +31,21 @@ body {
   font-size: 60px;
   color: var(--dark-theme);
   font-weight: 900;
+  margin-bottom: 0;
 }
 
 .subHeader {
   font-size: 32px;
   color: var(--dark-theme);
+  margin-top: 0;
 }
 .splitHeader {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  margin: 0 10vw;
 }
 .youHeader {
-  color: var(--selected-you)
+  color: var(--selected-you);
 }
 .aiHeader {
   color: var(--selected-ai);
@@ -63,13 +67,17 @@ body {
   padding: 10px 20px;
   background-color: white;
   color: var(--dark-theme);
-  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.1vw 0.3vw 1.5vw 0.3vw rgba(0, 0, 0, 0.25);
   cursor: pointer;
   border: none;
-  border-radius: 30px;
+  border-radius: 3vw;
   text-align: center;
   text-decoration: none;
-  margin-bottom: 20px;
+  margin-bottom: 2vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .startGame:hover {
   color: var(--selected-you);
@@ -81,23 +89,30 @@ body {
   font-weight: 700;
 }
 
+.subHeader.result {
+  font-size: 42px;
+  color: var(--selected-you);
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
 .icon-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .card {
   flex: 1;
-  width: 227px;
-  height: 209px;
+  width: 16vw;
+  height: 16vw;
   background-color: var(--dark-theme);
-  border-radius: 30px;
-  padding: 20px;
+  border-radius: 3vw;
+  padding: 1vw;
   color: #0a0b17;
   background-color: white;
-  box-shadow: 1px 3px 15px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.1vw 0.3vw 1.5vw 0.3vw rgba(0, 0, 0, 0.25);
   text-align: center;
-  margin: 0 50px;
+  margin: 0 5vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -105,38 +120,38 @@ body {
   cursor: pointer;
 }
 
-.card:hover {
+.select:hover {
   background-color: white;
   transition: 0.3s ease-in-out;
   color: var(--selected-you);
 }
 
 .card i {
-  font-size: 101px;
-  margin-bottom: 40px;
-  margin-top: 80px;
+  font-size: 10.1vw;
+  margin-bottom: 4vw;
+  margin-top: 8vw;
 }
 
 .card h4 {
-  font-size: 32px;
-  margin-top: 30px;
+  font-size: 3.2vw;
+  margin-top: 3vw;
 }
 
 .roundCountContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
-  min-width: 400px;
-  margin-bottom: 50px;
+  margin-top: 2vw;
+  min-width: 40vw;
+  margin-bottom: 5vw;
 }
 
 .circle {
-  width: 50px;
-  height: 50px;
+  width: 5vw;
+  height: 5vw;
   background-color: #d9d9d9;
   border-radius: 50%;
-  margin-right: 30px;
+  margin-right: 3vw;
 }
 
 .circle:last-child {
@@ -145,9 +160,20 @@ body {
 
 .you {
   background-color: var(--selected-you);
+  color: white;
 }
 .ai {
-  background-color: #ff007a;
+  background-color: var(--selected-ai);
+  color: white;
+}
+
+.selected {
+  box-shadow: none;
+  cursor: default;
+}
+
+.selected:hover {
+  transition: none;
 }
 
 .none {
@@ -202,4 +228,65 @@ body {
 .cardInGame h4 {
   font-size: 32px;
   margin-top: 30px;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mainHeader {
+    margin-top: 10vw !important;
+    font-size: 6vw !important;
+  }
+
+  .heroHeader {
+    font-size: 6vw;
+  }
+
+  .subHeader {
+    font-size: 3vw !important;
+  }
+
+  .subHeader.result {
+    font-size: 5vw !important;
+  }
+
+  .startGame {
+    border-radius: 5vw;
+    width: 36.6vw;
+    height: 12.6vw;
+    padding: 1vw 2vw;
+  }
+
+  .startBtn {
+    font-size: 4.8vw;
+  }
+
+  .gameMain {
+    padding-top: 15vw;
+  }
+
+  .icon-container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 30vw !important;
+    height: 30vw !important;
+    margin-bottom: 4vw !important;
+    padding: 1vw 0;
+  }
+}
+
+@media screen and (orientation: landscape) {
+  .icon-container {
+    flex-direction: row;
+  }
+
+  .card {
+    height: 16vw !important;
+    width: 16vw !important;
+  }
+
+  .gameMain {
+    padding-top: 0vw;
+  }
 }
