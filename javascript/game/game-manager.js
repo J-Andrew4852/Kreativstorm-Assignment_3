@@ -32,8 +32,6 @@ class GameManager {
           break;
 
         case gameState.ANIMATION:
-          console.log('Current round: ', this.getCurrentRound());
-          console.log(this.#rounds[this.getCurrentRound()-1]);
           Display.updateChosenCards(this.#playerChoice, this.#rounds[this.getCurrentRound()-1].getBotChoice());
           Display.visibleElements('mainHeader', 'splitHeader', 'gameMain', 'iconContainer', 'youCard', 'aiCard');
           break;
@@ -71,7 +69,6 @@ class GameManager {
 
   pushRound(round) {
     this.#rounds.push(round);
-    console.log('Rounds: ', this.#rounds);
   }
 
   updateCurrentRound() {
