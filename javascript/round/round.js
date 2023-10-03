@@ -16,6 +16,11 @@ class Round {
   start() {
     this.#generateBotChoice();
     GameManager.gm.setGameState(gameState.ANIMATION);
+    
+    setTimeout(() => {
+      this.#calculateResult();
+      GameManager.gm.setGameState(gameState.RESULT);
+    }, 1200);
   }
 
   #generateBotChoice() {
@@ -58,6 +63,10 @@ class Round {
 
   getBotChoice() {
     return this.#botChoice;
+  }
+
+  getRoundResult() {
+    return this.#roundResult;
   }
 }
 

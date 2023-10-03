@@ -1,6 +1,6 @@
-const displayElements = {
+export const displayElements = {
   heroHeader: document.getElementById('heroHeader'), // GAME_START
-  mainHeader: document.getElementById('mainHeader'), // CHOICE, ANIMATION
+  mainHeader: document.getElementById('mainHeader'), // CHOICE, ANIMATION, RESULT
   subHeader: document.getElementById('subHeader'), // CHOICE
   splitHeader: document.getElementById('splitHeader'), // ANIMATION
   
@@ -12,7 +12,14 @@ const displayElements = {
   paperCard: document.getElementById('paperCard'), // CHOICE
   scissorsCard: document.getElementById('scissorsCard'), // CHOICE
   
-  roundCountContainer: document.getElementById('roundCountContainer')
+  roundCountContainer: document.getElementById('roundCountContainer'),
+
+  // JavaScript generated HTML
+  // gameCardsContainer: document.getElementById('gameCardsContainer'),
+  // cardInGamePlayer: document.getElementById('cardInGamePlayer'),
+  // cardInGameAi: document.getElementById('cardInGameAi'),
 }
 
-export default displayElements;
+export const displayElementsHTML = {
+  gameMainHTML: document.getElementById('gameMain').innerHTML,
+}

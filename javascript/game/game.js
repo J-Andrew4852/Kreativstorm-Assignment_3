@@ -1,6 +1,6 @@
 import GameManager from './game-manager.js';
 import gameState from './game-state.js';
-import displayElements from '../display/display.js';
+import {displayElements} from '../display/display.js';
 import Round from '../round/round.js';
 
 class Game {
@@ -33,19 +33,19 @@ class Game {
   }
 
   static #onClickRockCard() {
-    if(GameManager.gm.getPreviousGameState() !== gameState.START) GameManager.gm.updateCurrentRound();
+    if(GameManager.gm.getCurrentRound() !== 1) GameManager.gm.updateCurrentRound();
     GameManager.gm.setPlayerChoice('rock');
     new Round().start();
   }
 
   static #onClickPaperCard() {
-    if(GameManager.gm.getPreviousGameState() !== gameState.START) GameManager.gm.updateCurrentRound();
+    if(GameManager.gm.getCurrentRound() !== 1) GameManager.gm.updateCurrentRound();
     GameManager.gm.setPlayerChoice('paper');
     new Round().start();
   }
 
   static #onClickScissorsCard() {
-    if(GameManager.gm.getPreviousGameState() !== gameState.START) GameManager.gm.updateCurrentRound();
+    if(GameManager.gm.getCurrentRound() !== 1) GameManager.gm.updateCurrentRound();
     GameManager.gm.setPlayerChoice('scissors');
     new Round().start();
   }
