@@ -20,10 +20,10 @@
     />
     <link rel="stylesheet" href="style.css" />
     <title>Rock Paper Scissors</title>
-    <!-- <link rel="icon" href="favicon.png" type="image/x-icon" /> -->
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
   </head>
   <body>
-    <section>
+    <section class="game">
       <div class="gameTop">
         <h1 class="heroHeader none" id="heroHeader">Rock Paper Scissors</h1>
         <h2 class="mainHeader none" id="mainHeader">Round 1</h2>
@@ -34,23 +34,37 @@
         </div>
       </div>
       <div class="gameMain">
-        <div class="startGame none" id="startGame">
+        <div class="startGame none">
           <h3 class="startBtn">StartGame</h3>
         </div>
-        <div class="icon-container none" id="iconContainer">
-          <div class="card select" id="rockCard">
-            <!-- <img src="" alt="Icon" /> -->
+        <h3 class="subHeader result none">You Win</h3>
+        <div class="roundCountContainer none">
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+          <div class="circle"></div>
+        </div>
+        <div class="icon-container">
+          <div class="card select">
             <i class="fa-regular fa-hand-back-fist fa-rotate-90 fa-2xl"></i>
             <h4>Rock</h4>
           </div>
-          <div class="card select" id="paperCard">
-            <!-- <img src="" alt="Icon" /> -->
+          <div class="card select">
             <i class="fa-regular fa-hand fa-rotate-90 fa-2xl"></i>
             <h4>Paper</h4>
           </div>
-          <div class="card select" id="scissorsCard">
-            <!-- <img src="" alt="Icon" /> -->
-            <!-- <i class="bx bxs-hand bx-rotate-90" style="color: #ffffff"></i> -->
+          <div class="card select">
+            <i
+              class="fa-regular fa-hand-scissors fa-flip-horizontal fa-2xl"
+            ></i>
+            <h4>Scissors</h4>
+          </div>
+          <div class="card you selected none">
+            <i class="fa-regular fa-hand-back-fist fa-rotate-90 fa-2xl"></i>
+            <h4>Rock</h4>
+          </div>
+          <div class="card ai selected none">
             <i
               class="fa-regular fa-hand-scissors fa-flip-horizontal fa-2xl"
             ></i>
