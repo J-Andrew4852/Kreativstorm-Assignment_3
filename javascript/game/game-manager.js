@@ -65,7 +65,7 @@ class GameManager {
             } else {
               this.setGameState(gameState.END);
             }
-          }, 0); // 2000
+          }, 2000);
 
           break;
         
