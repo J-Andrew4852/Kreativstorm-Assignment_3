@@ -9,18 +9,11 @@ class Round {
   constructor() {
     this.#botChoice = '';
     this.#roundResult = '';
-  
-    GameManager.gm.pushRound(this);
   }
 
   start() {
-    this.#generateBotChoice();
     GameManager.gm.setGameState(gameState.ANIMATION);
-    
-    setTimeout(() => {
-      this.#calculateResult();
-      GameManager.gm.setGameState(gameState.RESULT);
-    }, 1200);
+    this.#generateBotChoice();
   }
 
   #generateBotChoice() {
@@ -59,14 +52,6 @@ class Round {
         this.#roundResult = (this.#botChoice === 'paper' ? 'win' : 'lose');
         break;
     }
-  }
-
-  getBotChoice() {
-    return this.#botChoice;
-  }
-
-  getRoundResult() {
-    return this.#roundResult;
   }
 }
 
