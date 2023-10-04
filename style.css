@@ -98,6 +98,7 @@ body {
 .icon-container {
   display: flex;
   justify-content: space-evenly;
+  transition: justify-content 1.5s ease-in-out;
 }
 
 .card {
@@ -193,10 +194,23 @@ body {
 .selected {
   box-shadow: none;
   cursor: default;
+  opacity: 1;
 }
 
-.selected:hover {
-  transition: none;
+#youCard, #aiCard, .youCardAni, .aiCardAni {
+  transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+}
+#youCard {
+  transform: translateX(-70vw);
+}
+#aiCard {
+  transform: translateX(70vw);
+}
+.youCardAni {
+  transform: translateX(0) !important;
+}
+.aiCardAni {
+  transform: translateX(0) !important;
 }
 
 .none {
