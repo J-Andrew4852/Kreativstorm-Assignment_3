@@ -91,7 +91,6 @@ body {
 
 .subHeader.result {
   font-size: 42px;
-  color: var(--selected-you);
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -158,6 +157,30 @@ body {
   margin-right: 0;
 }
 
+.winColor {
+  color: var(--selected-you);
+}
+
+.winBackground {
+  background-color: var(--selected-you);
+}
+
+.loseColor {
+  color: var(--selected-ai);
+}
+
+.loseBackground {
+  background-color: var(--selected-ai);
+}
+
+.tieColor {
+  color: var(--draw);
+}
+
+.tieBackground {
+  background-color: var(--draw);
+}
+
 .you {
   background-color: var(--selected-you);
   color: white;
@@ -177,57 +200,6 @@ body {
 }
 
 .none {
-  display: none !important; /* I had to add !important, otherwise my display: flex in cardInGame  overides it, you might want to re-arange CSS for this. - Grantas */
-}
-
-
-/* ========= Grantas's CSS for JS reasons ========= */
-
-.gameCardsContainer {
-  display: flex;
-  justify-content: space-evenly;
-}
-
-.cardInGame {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex: 1;
-  
-  width: 227px;
-  height: 209px;
-  
-  padding: 20px;
-  
-  background-color: var(--dark-theme);
-  border-radius: 30px;
-  color: white;
-  text-align: center;
-  margin: 0 50px;
-
-  cursor: pointer;
-}
-
-.cardInGamePlayer {
-  background-color: #51C2C0;
-  box-shadow: 1px 3px 15px 3px rgba(81, 194, 192, 0.25);
-}
-
-.cardInGameAi {
-  background-color: #FF007A;
-  box-shadow: 1px 3px 15px 3px rgba(255, 0, 122, 0.25);
-}
-
-.cardInGame i {
-  font-size: 101px;
-  margin-bottom: 40px;
-  margin-top: 80px;
-}
-
-.cardInGame h4 {
-  font-size: 32px;
-  margin-top: 30px;
   display: none;
 }
 
