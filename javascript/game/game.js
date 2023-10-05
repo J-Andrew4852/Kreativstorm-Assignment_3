@@ -31,6 +31,7 @@ class Game {
   }
 
   static #onClickGameStart() {
+    GameManager.gm.resetGame();
     GameManager.gm.updateCurrentRound();
     GameManager.gm.setGameState(gameState.CHOICE);
   }

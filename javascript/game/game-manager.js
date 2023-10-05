@@ -171,9 +171,37 @@ class GameManager {
     this.#currentRound = this.#currentRound + 1;
   }
 
+  resetGame() {
+    this.#currentRound = 0;
+    this.#currentRoundResult = "";
+    this.#playerChoice = "";
+    this.#rounds = [];
+    this.setGameState(gameState.START);
+
+    for (let i = 1; i <= 5; i++) {
+      const topCircle = document.getElementById(`${i}.0`);
+      const bottomCircle = document.getElementById(`${i}.1`);
+
+      topCircle.classList.remove(
+        "winBackground",
+        "loseBackground",
+        "tieBackground"
+      );
+      bottomCircle.classList.remove(
+        "winBackground",
+        "loseBackground",
+        "tieBackground"
+      );
+    }
+  }
+
   setGameState(state) {
     this.#gameState = state;
     this.updateDisplay();
+
+    if (state === gameState.START) {
+      this.#currentRound = 0;
+    }
   }
 
   setPlayerChoice(choice) {
