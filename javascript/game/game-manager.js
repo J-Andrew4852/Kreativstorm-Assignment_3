@@ -1,9 +1,8 @@
-import gameState from './game-state.js';
-import Display from '../display/display.js';
-import Round from '../round/round.js';
+import gameState from "./game-state.js";
+import Display from "../display/display.js";
+import Round from "../round/round.js";
 
 class GameManager {
-
   static gm = new this();
 
   #gameState;
@@ -15,71 +14,108 @@ class GameManager {
   constructor() {
     this.#gameState = null;
     this.#currentRound = 0;
-    this.#currentRoundResult = '';
-    this.#playerChoice = '';
+    this.#currentRoundResult = "";
+    this.#playerChoice = "";
     this.#rounds = [];
   }
 
   updateDisplay() {
-      switch (this.#gameState) {
-        case gameState.START:
-          Display.visibleElements('heroHeader', 'gameMain', 'startGame');
-          break;
+    switch (this.#gameState) {
+      case gameState.START:
+        Display.visibleElements("heroHeader", "gameMain", "startGame");
+        break;
 
-        case gameState.CHOICE:
-          Display.updateMainHeader(this.getCurrentRound());
-          Display.visibleElements('mainHeader', 'subHeader', 'gameMain', 'iconContainer', 'rockCard', 'paperCard', 'scissorsCard');
-          break;
+      case gameState.CHOICE:
+        Display.updateMainHeader(this.getCurrentRound());
+        Display.visibleElements(
+          "mainHeader",
+          "subHeader",
+          "gameMain",
+          "iconContainer",
+          "rockCard",
+          "paperCard",
+          "scissorsCard"
+        );
+        break;
 
-        case gameState.ANIMATION:
-          Display.updateChosenCards(this.#playerChoice, this.#rounds[this.getCurrentRound()-1].getBotChoice());
-          Display.visibleElements('mainHeader', 'splitHeader', 'gameMain', 'iconContainer', 'youCard', 'aiCard');
-          break;
+      case gameState.ANIMATION:
+        Display.updateChosenCards(
+          this.#playerChoice,
+          this.#rounds[this.getCurrentRound() - 1].getBotChoice()
+        );
+        Display.visibleElements(
+          "mainHeader",
+          "splitHeader",
+          "gameMain",
+          "iconContainer",
+          "youCard",
+          "aiCard"
+        );
+        break;
 
-        case gameState.RESULT:
-          this.setCurrentRoundResult(this.#rounds[this.getCurrentRound()-1].getRoundResult());
-          const visibleCards = [];
-    
-          switch(this.getCurrentRoundResult()) {
-            case 'tie':
-              visibleCards.push('youCard', 'aiCard');
-              break;
+      case gameState.RESULT:
+        this.setCurrentRoundResult(
+          this.#rounds[this.getCurrentRound() - 1].getRoundResult()
+        );
+        const visibleCards = [];
 
-            case 'win':
-              visibleCards.push('youCard');
-              break;
+        switch (this.getCurrentRoundResult()) {
+          case "tie":
+            visibleCards.push("youCard", "aiCard");
+            break;
 
-            case 'lose':
-              visibleCards.push('aiCard');
-              break;
+          case "win":
+            visibleCards.push("youCard");
+            break;
+
+          case "lose":
+            visibleCards.push("aiCard");
+            break;
+        }
+
+        Display.updateSubHeaderResult(this.getCurrentRoundResult());
+        Display.updateCircle(
+          this.getCurrentRound(),
+          this.getCurrentRoundResult()
+        );
+        Display.visibleElements(
+          "mainHeader",
+          "gameMain",
+          "subHeaderResult",
+          "roundCountContainerTop",
+          "iconContainer",
+          ...visibleCards
+        );
+
+        setTimeout(() => {
+          if (this.getCurrentRound() !== 5) {
+            this.updateCurrentRound();
+            this.setGameState(gameState.CHOICE);
+          } else {
+            this.setGameState(gameState.END);
           }
+        }, 2000);
 
-          Display.updateSubHeaderResult(this.getCurrentRoundResult());
-          Display.updateCircle(this.getCurrentRound(), this.getCurrentRoundResult());
-          Display.visibleElements('mainHeader', 'gameMain', 'subHeaderResult', 'roundCountContainerTop', 'iconContainer', ...visibleCards);
+        break;
 
-          setTimeout(() => {
-            if (this.getCurrentRound() !== 5) {
-              this.updateCurrentRound();
-              this.setGameState(gameState.CHOICE);
-            } else {
-              this.setGameState(gameState.END);
-            }
-          }, 2000);
+      case gameState.END:
+        const matchResult = this.#getMatchResult();
+        const matchResultInfo = this.#getMatchResultInfo();
 
-          break;
-        
-        case gameState.END:
-          const matchResult = this.#getMatchResult();
-          const matchResultInfo = this.#getMatchResultInfo();
+        console.log(matchResultInfo);
 
-          console.log(matchResultInfo);
-
-          Display.updateHeroHeader(matchResult);
-          Display.updateMatchResult(matchResult);
-          Display.updateMatchResultInfo(matchResultInfo);
-          Display.visibleElements('heroHeader', 'gameMain', 'matchResult', 'matchResultInfo', 'roundCountContainerBottom');
-          break;
+        Display.updateHeroHeader(matchResult);
+        Display.updateMatchResult(matchResult);
+        Display.updateMatchResultInfo(matchResultInfo);
+        Display.visibleElements(
+          "heroHeader",
+          "gameMain",
+          "matchResult",
+          "matchResultInfo",
+          "roundCountContainerBottom",
+          "endGame"
+        );
+        break;
     }
   }
 
@@ -87,20 +123,20 @@ class GameManager {
     let wins = 0;
     let loses = 0;
 
-    this.#rounds.forEach(round => {
-      switch(round.getRoundResult()) {
-        case 'win':
+    this.#rounds.forEach((round) => {
+      switch (round.getRoundResult()) {
+        case "win":
           wins++;
           break;
 
-        case 'lose':
+        case "lose":
           loses++;
           break;
       }
     });
 
     let result = wins - loses;
-    return (result === 0 ? 'tie' : (result > 0 ? 'win' : 'lose'));
+    return result === 0 ? "tie" : result > 0 ? "win" : "lose";
   }
 
   #getMatchResultInfo() {
@@ -108,17 +144,17 @@ class GameManager {
     let wins = 0;
     let loses = 0;
 
-    this.#rounds.forEach(round => {
-      switch(round.getRoundResult()) {
-        case 'tie':
+    this.#rounds.forEach((round) => {
+      switch (round.getRoundResult()) {
+        case "tie":
           ties++;
           break;
 
-        case 'win':
+        case "win":
           wins++;
           break;
 
-        case 'lose':
+        case "lose":
           loses++;
           break;
       }
