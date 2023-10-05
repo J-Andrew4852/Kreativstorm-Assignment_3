@@ -22,7 +22,11 @@ class GameManager {
   updateDisplay() {
     switch (this.#gameState) {
       case gameState.START:
-        Display.visibleElements("heroHeader", "gameMain", "startGame");
+        Display.visibleElements(
+          "heroHeader", 
+          "gameMain", 
+          "startGame"
+        );
         break;
 
       case gameState.CHOICE:
@@ -39,10 +43,14 @@ class GameManager {
         break;
 
       case gameState.ANIMATION:
+        this.setCurrentRoundResult(
+          this.#rounds[this.getCurrentRound() - 1].getRoundResult()
+        );
         Display.updateChosenCards(
           this.#playerChoice,
           this.#rounds[this.getCurrentRound() - 1].getBotChoice()
         );
+        Display.chosenCardSlideInAnimation();
         Display.visibleElements(
           "mainHeader",
           "splitHeader",
@@ -51,12 +59,11 @@ class GameManager {
           "youCard",
           "aiCard"
         );
+
+        this.#setGameStateToResult();
         break;
 
       case gameState.RESULT:
-        this.setCurrentRoundResult(
-          this.#rounds[this.getCurrentRound() - 1].getRoundResult()
-        );
         const visibleCards = [];
 
         switch (this.getCurrentRoundResult()) {
@@ -115,9 +122,37 @@ class GameManager {
           "roundCountContainerBottom",
           "endGame"
         );
+
         break;
     }
   }
+
+    // Timeouts needed for animation purposes.
+    #setGameStateToResult() {
+      setTimeout(() => {
+        switch(this.#currentRoundResult) {
+          case 'tie': 
+            setTimeout(() => {
+              GameManager.gm.setGameState(gameState.RESULT);
+            }, 500);
+            break;
+          
+            case 'win':
+            setTimeout(() => {
+              GameManager.gm.setGameState(gameState.RESULT);
+            }, 2500);
+            break;
+  
+          case 'lose':
+            setTimeout(() => {
+              GameManager.gm.setGameState(gameState.RESULT);
+            }, 2500);
+            break;
+        }
+      
+        Display.chosenCardFadeOutAnimation(this.#currentRoundResult);
+      }, 3000);
+    }
 
   #getMatchResult() {
     let wins = 0;

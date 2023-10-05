@@ -82,6 +82,50 @@ class Display {
     Display.displayElements["aiCard"].innerHTML = aiCardHTML;
   }
 
+  static chosenCardSlideInAnimation() {
+    let youCard = Display.displayElements['youCard'];
+    let aiCard = Display.displayElements['aiCard'];
+    
+    aiCard.classList.remove('aiCardAni');
+    youCard.classList.remove('youCardAni');
+    
+    aiCard.style.opacity = '1';
+    aiCard.classList.remove('none');
+    
+    youCard.style.opacity = '1';
+    youCard.classList.remove('none');
+    
+    setTimeout(() => {
+      aiCard.classList.add('aiCardAni');
+      youCard.classList.add('youCardAni');
+    }, 250);
+  }
+
+  static chosenCardFadeOutAnimation(currentRoundResult) {
+    let youCard = Display.displayElements['youCard'];
+    let aiCard = Display.displayElements['aiCard'];
+
+    switch (currentRoundResult) {
+      case 'win':
+        setTimeout(() => {
+          aiCard.style.opacity = '0';
+        }, 100);
+        setTimeout(() => {
+          aiCard.classList.add('none');
+        }, 1500);
+        break;
+      
+      case 'lose':
+        setTimeout(() => {
+          youCard.style.opacity = '0';
+        }, 100);
+        setTimeout(() => {
+          youCard.classList.add('none');
+        }, 1500);
+        break;
+    }
+  }
+
   static updateSubHeaderResult(currentRoundResult) {
     let text = "";
     let colorClass = "";
