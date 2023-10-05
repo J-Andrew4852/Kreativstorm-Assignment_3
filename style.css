@@ -12,7 +12,10 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
+  overflow-x: hidden;
 }
+
+/* ========================= HEADER  =========================== */
 
 .gameTop {
   display: flex;
@@ -32,29 +35,6 @@ body {
   color: var(--dark-theme);
   font-weight: 900;
   margin-bottom: 0;
-}
-
-.subHeader {
-  font-size: 32px;
-  color: var(--dark-theme);
-  margin-top: 0;
-}
-.splitHeader {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 10vw;
-}
-.youHeader {
-  color: var(--selected-you);
-}
-.aiHeader {
-  color: var(--selected-ai);
-}
-.gameMain {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
 }
 
 .startGame {
@@ -89,10 +69,31 @@ body {
   font-weight: 700;
 }
 
-.subHeader.result {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 0;
+.subHeader {
+  font-size: 32px;
+  color: var(--dark-theme);
+  margin-top: 0;
+}
+
+.gameMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* ========================= CARD  =========================== */
+
+.splitHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 10vw;
+}
+.youHeader {
+  color: var(--selected-you);
+}
+.aiHeader {
+  color: var(--selected-ai);
 }
 
 .icon-container {
@@ -135,6 +136,48 @@ body {
 .card h4 {
   font-size: 3.2vw;
   margin-top: 3vw;
+}
+
+.you {
+  background-color: var(--selected-you);
+  color: white;
+}
+.ai {
+  background-color: var(--selected-ai);
+  color: white;
+}
+
+.selected {
+  box-shadow: none;
+  cursor: default;
+  opacity: 1;
+}
+
+#youCard,
+#aiCard,
+.youCardAni,
+.aiCardAni {
+  transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+}
+#youCard {
+  transform: translateX(-70vw);
+}
+#aiCard {
+  transform: translateX(70vw);
+}
+.youCardAni {
+  transform: translateX(0) !important;
+}
+.aiCardAni {
+  transform: translateX(0) !important;
+}
+
+/* ========================= RESULT  =========================== */
+
+.subHeader.result {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 0;
 }
 
 .roundCountContainer {
@@ -182,35 +225,48 @@ body {
   background-color: var(--draw);
 }
 
-.you {
-  background-color: var(--selected-you);
-  color: white;
-}
-.ai {
-  background-color: var(--selected-ai);
-  color: white;
+.matchResult {
+  font-size: 48px;
+  font-weight: 800;
 }
 
-.selected {
-  box-shadow: none;
-  cursor: default;
-  opacity: 1;
+.matchResult h1 {
+  margin-top: 0;
+  margin-bottom: 20px;
 }
 
-#youCard, #aiCard, .youCardAni, .aiCardAni {
-  transition: transform 1.5s ease-out, opacity 1.5s ease-out;
+.matchResultInfo {
+  font-size: 42px;
+  font-weight: 600;
 }
-#youCard {
-  transform: translateX(-70vw);
+
+.endGame {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 366px;
+  height: 120px;
+  background-color: white;
+  color: var(--dark-theme);
+  box-shadow: 0.1vw 0.3vw 1.5vw 0.3vw rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border: none;
+  border-radius: 3vw;
+  text-align: center;
+  text-decoration: none;
+  margin-bottom: 2vw;
+  top: 50%;
+  left: 50%;
 }
-#aiCard {
-  transform: translateX(70vw);
+.endGame:hover {
+  color: var(--selected-you);
+  transition: 0.3s ease-in-out;
 }
-.youCardAni {
-  transform: translateX(0) !important;
-}
-.aiCardAni {
-  transform: translateX(0) !important;
+.endBtn {
+  margin: 0;
+  font-size: 3vw;
+  font-weight: 700;
 }
 
 .none {
@@ -221,6 +277,18 @@ body {
   .mainHeader {
     margin-top: 10vw !important;
     font-size: 6vw !important;
+  }
+
+  .matchResult {
+    font-size: 4.8vw !important;
+  }
+
+  .matchResult h1 {
+    margin-top: 0;
+  }
+
+  .matchResultInfo {
+    font-size: 4.2vw;
   }
 
   .heroHeader {
@@ -259,6 +327,13 @@ body {
     height: 30vw !important;
     margin-bottom: 4vw !important;
     padding: 1vw 0;
+  }
+
+  .endGame {
+    border-radius: 5vw;
+    width: 36.6vw;
+    height: 12vw;
+    padding: 1vw 2vw;
   }
 }
 
