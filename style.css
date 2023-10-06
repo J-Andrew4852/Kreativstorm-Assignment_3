@@ -13,6 +13,17 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
 /* ========================= HEADER  =========================== */
 .gameTop {
   display: flex;
@@ -296,6 +307,9 @@ body {
   #roundCountContainerTop {
     margin-top: 10vw;
   }
+  .splitHeader h3.subHeader {
+    font-size: 4vw;
+  }
 }
 @media (max-width: 991.98px) {
   .heroHeader {
@@ -324,17 +338,4 @@ body {
     width: 5vw;
     height: 5vw;
   }
-}
-@media screen and (orientation: landscape) {
-  /* .icon-container {
-    flex-direction: row;
-  } */
-
-  /* .card {
-    margin: 0 1%;
-  } */
-
-  /* .gameMain {
-    padding-top: 0vw;
-  } */
 }

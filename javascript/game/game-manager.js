@@ -23,6 +23,9 @@ class GameManager {
     switch (this.#gameState) {
       case gameState.START:
         Display.visibleElements("heroHeader", "gameMain", "startGame");
+        Display.applyFadeInAnimation("heroHeader");
+        Display.applyFadeInAnimation("gameMain");
+        Display.applyFadeInAnimation("startGame");
         break;
 
       case gameState.CHOICE:
@@ -36,6 +39,13 @@ class GameManager {
           "paperCard",
           "scissorsCard"
         );
+        Display.applyFadeInAnimation("mainHeader");
+        Display.applyFadeInAnimation("subHeader");
+        Display.applyFadeInAnimation("gameMain");
+        Display.applyFadeInAnimation("iconContainer");
+        Display.applyFadeInAnimation("rockCard");
+        Display.applyFadeInAnimation("paperCard");
+        Display.applyFadeInAnimation("scissorsCard");
         break;
 
       case gameState.ANIMATION:
@@ -51,6 +61,12 @@ class GameManager {
           "youCard",
           "aiCard"
         );
+        Display.applyFadeInAnimation("mainHeader");
+        Display.applyFadeInAnimation("splitHeader");
+        Display.applyFadeInAnimation("gameMain");
+        Display.applyFadeInAnimation("iconContainer");
+        Display.applyFadeInAnimation("youCard");
+        Display.applyFadeInAnimation("aiCard");
         break;
 
       case gameState.RESULT:
@@ -86,6 +102,14 @@ class GameManager {
           "iconContainer",
           ...visibleCards
         );
+        Display.applyFadeInAnimation("mainHeader");
+        Display.applyFadeInAnimation("gameMain");
+        Display.applyFadeInAnimation("subHeaderResult");
+        Display.applyFadeInAnimation("roundCountContainerTop");
+        Display.applyFadeInAnimation("iconContainer");
+        visibleCards.forEach((card) => {
+          Display.applyFadeInAnimation(card);
+        });
 
         setTimeout(() => {
           if (this.getCurrentRound() !== 5) {
@@ -115,6 +139,12 @@ class GameManager {
           "roundCountContainerBottom",
           "endGame"
         );
+        Display.applyFadeInAnimation("heroHeader");
+        Display.applyFadeInAnimation("gameMain");
+        Display.applyFadeInAnimation("matchResult");
+        Display.applyFadeInAnimation("matchResultInfo");
+        Display.applyFadeInAnimation("roundCountContainerBottom");
+        Display.applyFadeInAnimation("endGame");
         break;
     }
   }

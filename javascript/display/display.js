@@ -82,6 +82,16 @@ class Display {
     Display.displayElements["aiCard"].innerHTML = aiCardHTML;
   }
 
+  static applyFadeInAnimation(elementId) {
+    const element = Display.displayElements[elementId];
+    element.classList.add("fade-in");
+  }
+
+  static removeFadeInAnimation(elementId) {
+    const element = Display.displayElements[elementId];
+    element.classList.remove("fade-in");
+  }
+
   static updateSubHeaderResult(currentRoundResult) {
     let text = "";
     let colorClass = "";
