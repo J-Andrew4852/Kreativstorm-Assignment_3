@@ -21,7 +21,7 @@ body {
   display: flex;
   flex-direction: column;
   text-align: center;
-  margin-bottom: 4vw;
+  margin-bottom: 2vw;
 }
 
 .heroHeader {
@@ -247,6 +247,7 @@ body {
   align-items: center;
   width: 366px;
   height: 120px;
+  padding: 1vw 2vw;
   background-color: white;
   color: var(--dark-theme);
   box-shadow: 0.1vw 0.3vw 1.5vw 0.3vw rgba(0, 0, 0, 0.25);
@@ -265,7 +266,7 @@ body {
 }
 .endBtn {
   margin: 0;
-  font-size: 3vw;
+  font-size: 48px;
   font-weight: 700;
 }
 
@@ -303,14 +304,16 @@ body {
     font-size: 5vw !important;
   }
 
-  .startGame {
+  .startGame,
+  .endGame {
     border-radius: 5vw;
     width: 36.6vw;
     height: 12.6vw;
     padding: 1vw 2vw;
   }
 
-  .startBtn {
+  .startBtn,
+  .endBtn {
     font-size: 4.8vw;
   }
 
@@ -329,12 +332,15 @@ body {
     padding: 1vw 0;
   }
 
-  .endGame {
+  /* .endGame {
     border-radius: 5vw;
     width: 36.6vw;
-    height: 12vw;
+    height: 12.6vw;
     padding: 1vw 2vw;
-  }
+  } */
+  /* .endBtn {
+    font-size: 4.8vw;
+  } */
 }
 
 @media screen and (orientation: landscape) {
