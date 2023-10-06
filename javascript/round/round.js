@@ -1,3 +1,4 @@
+import Display from '../display/display.js';
 import GameManager from '../game/game-manager.js';
 import gameState from '../game/game-state.js';
 
@@ -15,50 +16,8 @@ class Round {
 
   start() {
     this.#generateBotChoice();
+    this.#calculateResult();
     GameManager.gm.setGameState(gameState.ANIMATION);
-    let aiCard = document.getElementById('aiCard')
-    let youCard = document.getElementById('youCard')
-    aiCard.classList.remove('aiCardAni');
-    youCard.classList.remove('youCardAni');
-    aiCard.style.opacity = '1';
-    aiCard.classList.remove('none')
-    youCard.style.opacity = '1';
-    youCard.classList.remove('none')
-    setTimeout(() => {
-      aiCard.classList.add('aiCardAni')
-      youCard.classList.add('youCardAni')
-    }, 250);
-    
-    setTimeout(() => {
-      this.#calculateResult();
-      if (this.#roundResult === 'win') {
-        setTimeout(() => {
-          aiCard.style.opacity = '0';
-        }, 100)
-        setTimeout(() => {
-          aiCard.classList.add('none')
-        }, 1500)
-        setTimeout(() => {
-          GameManager.gm.setGameState(gameState.RESULT);
-        }, 2500)
-        return
-      }
-      if (this.#roundResult === 'lose') {
-        setTimeout(() => {
-          youCard.style.opacity = '0';
-        }, 100)
-        setTimeout(() => {
-          youCard.classList.add('none')
-        }, 1500)
-        setTimeout(() => {
-          GameManager.gm.setGameState(gameState.RESULT);
-        }, 2500)
-        return
-      }
-      setTimeout(() => {
-        GameManager.gm.setGameState(gameState.RESULT);
-      }, 500)
-    }, 3000);
   }
 
   #generateBotChoice() {
